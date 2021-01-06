@@ -17,8 +17,24 @@ treeMethods.addChild = function(value) {
   this.children.push(node);
 };
 
+
+
 treeMethods.contains = function(target) {
-  // if (this.childeren )
+  var test = false;
+  var tree = newTree;
+  var innerContains = function(children) {
+    if (children.value === target) {
+      test = true;
+    } else {
+      if (childeren.length > 0) {
+        for (var i = 0; i < children.length; i++) {
+          innerContains(children[i]);
+        }
+      }
+    }
+  };
+  innerContains(tree);
+  return test;
 };
 
 // treeMethods.newNode = function(value) {
