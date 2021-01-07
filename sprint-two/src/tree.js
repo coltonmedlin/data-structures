@@ -18,22 +18,21 @@ treeMethods.addChild = function(value) {
 };
 
 
-
+// Tree.contain(5);
 treeMethods.contains = function(target) {
   var test = false;
-  var tree = newTree;
-  var innerContains = function(children) {
-    if (children.value === target) {
+  var innerContains = function(node) {
+    if (node.value === target) {
       test = true;
     } else {
-      if (childeren.length > 0) {
-        for (var i = 0; i < children.length; i++) {
-          innerContains(children[i]);
+      if (node.children.length > 0) {
+        for (var i = 0; i < node.children.length; i++) {
+          innerContains(node.children[i]);
         }
       }
     }
   };
-  innerContains(tree);
+  innerContains(this);
   return test;
 };
 
