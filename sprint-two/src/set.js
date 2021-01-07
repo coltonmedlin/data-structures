@@ -21,3 +21,5 @@ setPrototype.remove = function(item) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+// Time Complexity for all of these are constant.
