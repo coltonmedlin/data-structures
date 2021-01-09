@@ -25,19 +25,21 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    var current = this.head;
-    while (current.next !== null) {
-      if (current.value === target) {
-        return true;
-      }
-      current = current.next;
+
+    if (this.tail.value === target) {
+      return true;
     }
-    // if (current.value === target) {
-    //   return true;
-    // } else {
-    //   return false;
-    // }
-    return current.value === target ? true : false;
+
+    const search = function (node) {
+      if (node.value === target) {
+        return true;
+      } else if (node.next) {
+        search(node.next);
+      }
+    };
+
+    return search(this.head) ? true : false;
+
   };
 
   return list;
