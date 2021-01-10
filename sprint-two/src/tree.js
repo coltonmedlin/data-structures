@@ -1,9 +1,8 @@
-var Tree = function(value) {
+const Tree = function(value) {
   var newTree = {};
   newTree.value = value;
   newTree.children = [];
 
-  // your code here
   _.extend(newTree, treeMethods);
 
   return newTree;
@@ -11,14 +10,16 @@ var Tree = function(value) {
 
 var treeMethods = {};
 
+let size = 0;
+
+
 treeMethods.addChild = function(value) {
-  // var node = this.newNode(value);
   var node = Tree(value);
   this.children.push(node);
+  size++;
 };
 
 
-// Tree.contain(5);
 treeMethods.contains = function(target) {
   var test = false;
   var innerContains = function(node) {
@@ -36,13 +37,8 @@ treeMethods.contains = function(target) {
   return test;
 };
 
-// treeMethods.newNode = function(value) {
-//   return {
-//     value: value,
-//     children: []
-//   };
-// };
-
 /*
  * Complexity: What is the time complexity of the above functions?
+ addChild: constant
+ contains: linear
  */

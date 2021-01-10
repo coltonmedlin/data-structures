@@ -24,8 +24,11 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
     binarySearchTree.insert(7);
+    binarySearchTree.insert(9);
     expect(binarySearchTree.contains(7)).to.equal(true);
     expect(binarySearchTree.contains(8)).to.equal(false);
+    expect(binarySearchTree.contains(9)).to.equal(true);
+    expect(binarySearchTree.contains(10)).to.equal(false);
   });
 
   it('should execute a callback on every value in a tree using "depthFirstLog"', function() {
@@ -34,7 +37,19 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
     binarySearchTree.insert(7);
+    binarySearchTree.insert(8);
     binarySearchTree.depthFirstLog(func);
-    expect(array).to.eql([5, 2, 3, 7]);
+    expect(array).to.eql([5, 2, 3, 7, 8]);
+  });
+
+  it('should execute a callback on every value in a tree using "depthFirstLog" in the correct order', function() {
+    var array = [];
+    var func = function(value) { array.push(2 * value); };
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(8);
+    binarySearchTree.depthFirstLog(func);
+    expect(array).to.eql([10, 4, 6, 14, 16]);
   });
 });

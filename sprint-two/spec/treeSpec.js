@@ -1,8 +1,16 @@
 describe('tree', function() {
   var tree;
 
+
+
   beforeEach(function() {
     tree = Tree();
+  });
+
+  it('should correctly calculate size', function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    expect(size).to.equal(2);
   });
 
   it('should have methods named "addChild" and "contains", and a property named "value"', function() {
@@ -24,6 +32,7 @@ describe('tree', function() {
   it('should return false for a value that was not added', function() {
     tree.addChild(5);
     expect(tree.contains(6)).to.equal(false);
+    expect(tree.contains(5)).to.equal(true);
   });
 
   it('should be able to add children to a tree\'s child', function() {
@@ -40,5 +49,7 @@ describe('tree', function() {
     expect(tree.contains(7)).to.equal(true);
     expect(tree.contains(8)).to.equal(true);
   });
+
+
 
 });

@@ -19,6 +19,9 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
+    if (this.head === null) {
+      return null;
+    }
     var value = this.head.value;
     this.head = this.head.next;
     return value;
@@ -56,5 +59,6 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ Remove Head = constant;
  Linked list complexity is linear;
  */

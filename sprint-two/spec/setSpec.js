@@ -24,4 +24,19 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('should contain only unique values', function() {
+    var uniqueness = function(obj) {
+      var inc = 0;
+      for (var key in obj) {
+        inc++;
+      }
+      return inc === 3 ? true : false;
+    };
+    set.add('Mel Gibson');
+    set.add('Garth Brooks');
+    set.add('Jackie Chan');
+    var value = uniqueness(set._storage);
+    expect(value).to.equal(true);
+  });
+
 });
